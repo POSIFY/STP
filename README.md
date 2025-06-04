@@ -15,23 +15,32 @@ _PC1/2/3 → S1 → S3 → PC4_
 * Backup Path (If S1–S3 link fails):
 _PC1/2/3 → S1 → S2 → S3 → PC4_
 
-Loop Prevention:
-STP should block the S1–S2 link under normal conditions to prevent loops. If the S1–S3 link goes down, STP reconverges and unblocks S1–S2 to maintain connectivity.
+**Loop Prevention:**
+STP should block the S1–S2 link under normal conditions to prevent loops from forming. If the S1–S3 link goes down, STP reconverges and unblocks S1–S2 to maintain connectivity.
 
-🔧 Key Implementation Details:
-S3 is manually set as the Root Bridge to ensure it's the central point for STP calculations.
-
-STP determines the optimal path, placing unnecessary paths in a blocking state.
-
-Upon failure of a forwarding link, STP dynamically unblocks alternate links to restore network communication.
-
-CLI commands and verification steps (show spanning-tree) are used to monitor STP behavior.
+**Key Implementation Details:**
+* S3 is manually set as the Root Bridge to ensure it's the central point for STP calculations.
+* STP determines the optimal path, placing unnecessary paths in a blocking state.
+* Upon failure of a forwarding link, STP dynamically unblocks alternate links to restore network communication.
+* CLI commands and verification steps (show spanning-tree) are used to monitor STP behavior.
 
 🏁 Achievements:
-Successfully simulated STP behavior and convergence in a redundant network.
+1. Successfully simulated STP behavior and convergence in a redundant network.
+2. Validated automatic failover and loop prevention using Cisco Packet Tracer.
+3. Gained practical experience with STP configurations, port roles, and port states (forwarding, blocking, etc.).
+4. Demonstrated how redundant topology can remain loop-free and resilient using STP.
 
-Validated automatic failover and loop prevention using Cisco Packet Tracer.
+---
 
-Gained practical experience with STP configurations, port roles, and port states (forwarding, blocking, etc.).
+### Step-by-Step Implementation
+1. Add 3 switches: S1, S2, and S3
+2. Add 4 PCs: PC1, PC2, PC3 (connected to S1) and PC4 (connected to S3)
+3. Connect the switches in a triangle:
+* S1 ↔ S2
+* S2 ↔ S3
+* S1 ↔ S3
+4. Connect PCs to switches:
+* PC1–3 → S1
+* PC4 → S3
 
-Demonstrated how redundant topology can remain loop-free and resilient using STP.
+![image](https://github.com/user-attachments/assets/804d2380-81a9-49ed-81f1-01850822ef2b)
