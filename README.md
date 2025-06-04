@@ -51,7 +51,6 @@ Assign static IPs to each PC:
 
 ![image](https://github.com/user-attachments/assets/e6ceabd3-ac04-4ec0-b6e6-f1f3cfbb33ba)
 
-
 ![image](https://github.com/user-attachments/assets/23fd8275-f56f-4698-8417-1c588ce338e2)
 
 **Step 3:** Set S3 as the Root Bridge
