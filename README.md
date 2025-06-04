@@ -33,6 +33,7 @@ STP should block the S1–S2 link under normal conditions to prevent loops from 
 ---
 
 ### Step-by-Step Implementation
+**Step 1** Create Topology
 1. Add 3 switches: S1, S2, and S3
 2. Add 4 PCs: PC1, PC2, PC3 (connected to S1) and PC4 (connected to S3)
 3. Connect the switches in a triangle:
@@ -44,3 +45,18 @@ STP should block the S1–S2 link under normal conditions to prevent loops from 
 * PC4 → S3
 
 ![image](https://github.com/user-attachments/assets/804d2380-81a9-49ed-81f1-01850822ef2b)
+
+**Step 2:** Configure PC IP Addresses
+Assign static IPs to each PC:
+
+![image](https://github.com/user-attachments/assets/e6ceabd3-ac04-4ec0-b6e6-f1f3cfbb33ba)
+
+
+![image](https://github.com/user-attachments/assets/23fd8275-f56f-4698-8417-1c588ce338e2)
+
+**Step 3:** Set S3 as the Root Bridge
+In global configuration mode on S3:
+
+_S3 enable_
+_S3(config)# spanning-tree vlan 1 priority 4096_
+Leave default priorities on S1 and S2 (32768). This ensures S3 becomes the Root Bridge.
